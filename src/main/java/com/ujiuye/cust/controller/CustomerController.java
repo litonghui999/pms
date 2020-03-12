@@ -24,8 +24,10 @@ public class CustomerController {
     @RequestMapping(value = "/jsonList",method = RequestMethod.GET)
     @ResponseBody
     public  List<Customer> getCustomerJsonList(){
+         Map<String,Object> map = new HashMap<String,Object>();
         List<Customer> list= customerService.getCustomerList();
         return list;
+        
     }
 
     @RequestMapping(value="/search",method=RequestMethod.GET)
@@ -35,6 +37,7 @@ public class CustomerController {
         mv.addObject("list",list);
         mv.addObject("keyword",keyword);
         return mv;
+
     }
 
     @RequestMapping("/del/{ids}")
